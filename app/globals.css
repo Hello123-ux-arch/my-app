@@ -1,26 +1,99 @@
+
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  margin: 0;
   font-family: Arial, Helvetica, sans-serif;
+  color: #171717;
+}
+
+.container-main {
+  width: min(1180px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+.section-heading {
+  text-align: center;
+}
+
+.section-heading h2 {
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 750;
+  letter-spacing: -0.8px;
+  color: #171717;
+}
+
+.section-heading p {
+  max-width: 550px;
+  margin: 12px auto 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #777;
+}
+
+.step-card {
+  min-height: 155px;
+  padding: 24px;
+  border-radius: 10px;
+  background: #f0f0f0;
+  border-top: 4px solid #dedede;
+  transition: all 0.25s ease;
+}
+
+.step-card:hover,
+.step-card-active {
+  transform: translateY(-4px);
+  background: #fff;
+  box-shadow: 0 7px 16px rgb(0 0 0 / 14%);
+}
+
+.service-card {
+  min-height: 155px;
+  padding: 27px;
+  border-radius: 10px;
+  border-top: 4px solid #24c1d0;
+  background: white;
+  transition: all 0.25s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgb(0 0 0 / 8%);
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 9px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.form-input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #fafafa;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.form-input:focus {
+  border-color: #24c1d0;
+}
+
+@media (max-width: 640px) {
+  .container-main {
+    width: calc(100% - 32px);
+  }
+
+  .step-card,
+  .service-card {
+    min-height: 130px;
+  }
 }
